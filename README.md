@@ -12,11 +12,18 @@ Add-on by KAFE
 Example configuration on simplesamlphp config.php
 
 90 => array(
+
      'class' => 'consent:Consent',
+
      'store' => 'consent:Cookie',
+
      'focus' => 'yes',
+
      'checked' => TRUE,
+
      'useRegistrationAuthority' => TRUE,
+
      'useLogo' => FALSE
+
 ),
 
