@@ -78,6 +78,10 @@ if (array_key_exists('yes', $_REQUEST)) {
         }
     }
 
+        // 접속 로깅
+        // IDP: '.$state['Source']['entityid'].',
+        $logging = 'LOGIN - SP: '.$state['Destination']['entityid'].', USER: '.json_encode($state['Attributes']);
+        SimpleSAML_Logger::notice($logging);
     SimpleSAML_Auth_ProcessingChain::resumeProcessing($state);
 }
 
