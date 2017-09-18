@@ -116,6 +116,7 @@ if (!empty($this->data['country'])) {
 		-->
 	</ul>
 	
+	<form action="<?php echo htmlspecialchars($this->data['yesTarget']); ?>">
 	<?php if ($this->data['usestorage']) { ?>
 	<p class="login-ing">
 		<input type="checkbox" id="saveconsent" name="saveconsent" <?php echo $this->data['checked'] ? 'checked="checked"' : ''; ?> value="1" />
@@ -144,8 +145,8 @@ if (!empty($this->data['country'])) {
 		}
 		?>
 		<input type="submit" class="btn-gray" name="no" value="<?php echo htmlspecialchars($this->t('{consent:consent:no}')) ?>" />
-		</form>
 	</div>
+	</form>
 </div>
 
 <?php
