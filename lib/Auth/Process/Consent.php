@@ -268,8 +268,13 @@ class sspmod_consent_Auth_Process_Consent extends SimpleSAML_Auth_ProcessingFilt
 
 	            // 접속 로깅
                     // IDP: '.$state['Source']['entityid'].',
-                    $logging = 'LOGIN - SP: '.$state['Destination']['entityid'].', USER: '.json_encode($state['Attributes']);
-                    SimpleSAML_Logger::notice($logging);
+                    /*$logging = 'LOGIN - SP: '.$state['Destination']['entityid'].', USER: '.json_encode($state['Attributes']);
+                    SimpleSAML_Logger::notice($logging);*/
+		    $encUid = base64_encode(SimpleSAML\Utils\Crypto::aesEncrypt($state['Attributes']['uid'][0]));
+		    $encAddr =  base64_encode(SimpleSAML\Utils\Crypto::aesEncrypt($_SERVER['REMOTE_ADDR']));
+
+		    $logging = 'Consent for \''.$state['Destination']['entityid'].'\', User \''. $encUid . '\' has made a consent from \'' . $encAddr . '\'.';
+	  	    SimpleSAML_Logger::stats($logging);
 
                     return;
                 }
