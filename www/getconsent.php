@@ -152,14 +152,17 @@ if (array_key_exists('UIInfo', $state['Destination'])) {
                         $privacypolicy =  $state['Source']['UIInfo']['PrivacyStatementURL']['en'];
                 }else{
 
-                         $newidx = 0;
-                        foreach($state['Destination']['UIInfo']['PrivacyStatementURL'] as $key =>$val)
-                        {
+                        $newidx = 0;
+                        if(isset($state['Destination']['UIInfo'])){
+                            foreach($state['Destination']['UIInfo']['PrivacyStatementURL'] as $key =>$val)
+                            {
                                 unset($state['Destination']['UIInfo']['PrivacyStatementURL'][$key]);
                                 $new_key =$newidx;
                                 $state['Destination']['UIInfo']['PrivacyStatementURL'][$new_key] = $val;
                                 $newidx++;
-                        }
+                            }
+			}
+                        if(isset($state['Source']['UIInfo']['PrivacyStatementURL'][0]))
                         $privacypolicy =  $state['Source']['UIInfo']['PrivacyStatementURL'][0];
                 }
         }
