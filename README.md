@@ -8,7 +8,8 @@ Add-on by KAFE
 * GUI
 * trimmed eduPersonTargetedID
 * read and show privacypolicy
-* read and show jurisdiction (work with KAFE federation manager)
+* read and show jurisdiction (working with KAFE federation manager)
+* latest federation status (Oct. 2018)
 
 Example configuration on simplesamlphp config.php
 
