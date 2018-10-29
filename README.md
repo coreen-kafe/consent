@@ -44,6 +44,6 @@ Example configuration on config.php
     
     12 => array('class' => 'core:AttributeMap',
     
-    'name2oid',
+        'name2oid',
     
     ),
